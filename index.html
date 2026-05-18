@@ -18,7 +18,7 @@ body{font-family:'Barlow',sans-serif;color:var(--tb);background:#fff;overflow-x:
   position:fixed;inset:0;z-index:9999;
   display:flex;align-items:center;justify-content:center;
   transition:opacity .6s ease,visibility .6s ease;
-  overflow:hidden;
+  overflow:visible;
   background: radial-gradient(ellipse at 60% 40%, #0a2a6e 0%, #01193f 55%, #000d24 100%);
 }
 #cs.hide{opacity:0;visibility:hidden;pointer-events:none;}
@@ -61,6 +61,7 @@ body{font-family:'Barlow',sans-serif;color:var(--tb);background:#fff;overflow-x:
   padding:40px 24px;
   max-width:640px;width:100%;
   position:relative;z-index:1;
+  overflow:visible;
 }
 
 /* Brand name at top */
@@ -99,8 +100,10 @@ body{font-family:'Barlow',sans-serif;color:var(--tb);background:#fff;overflow-x:
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:20px;
-  max-width:580px;
+  max-width:660px;
   margin:0 auto;
+  overflow:visible;
+  padding-top:10px;
 }
 
 /* Cards - glass morphism style */
@@ -109,7 +112,7 @@ body{font-family:'Barlow',sans-serif;color:var(--tb);background:#fff;overflow-x:
   display:flex;flex-direction:column;
   align-items:center;justify-content:center;
   gap:12px;
-  padding:24px 16px 20px;
+  padding:28px 20px 20px;
   border-radius:20px;
   border:1px solid rgba(255,255,255,.55);
   background:#ffffff;
@@ -119,6 +122,7 @@ body{font-family:'Barlow',sans-serif;color:var(--tb);background:#fff;overflow-x:
   transition:all .3s ease;
   font-family:inherit;outline:none;
   box-shadow:0 8px 32px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.35);
+  overflow:visible;
 }
 .cs-card:hover{
   background:#ffffff;
@@ -129,7 +133,7 @@ body{font-family:'Barlow',sans-serif;color:var(--tb);background:#fff;overflow-x:
 .cs-card:hover .cs-card-name{color:#003a82;}
 
 .cs-card img{
-  height:90px;width:auto;max-width:130px;
+  height:80px;width:auto;max-width:160px;
   object-fit:contain;display:block;margin:0 auto;
   filter:drop-shadow(0 4px 12px rgba(0,0,0,.4));
   transition:transform .3s ease;
@@ -670,7 +674,7 @@ footer{background:#f0f2f5;padding:52px 0 0;}
   <div class="sec">
     <div class="coh reveal">
       <div class="ew" data-t="contact_eyebrow">We are here for you</div>
-      <h2 class="sh">BRANCHES &amp; <span data-t="contact_title_span">CONTACT</span></h2>
+      <h2 class="sh"><span data-t="contact_title_branches">BRANCHES</span> &amp; <span data-t="contact_title_span">CONTACT</span></h2>
       <p class="sp" style="max-width:500px;margin:0 auto;" data-t="contact_desc">Visit us or contact us directly. We serve clients in Venezuela, Aruba and the Dominican Republic.</p>
     </div>
     <div class="cow">
@@ -798,7 +802,7 @@ footer{background:#f0f2f5;padding:52px 0 0;}
       cta_eyebrow:'Get in touch today', cta_title:'READY TO EQUIP YOUR BUSINESS?',
       cta_desc:'Our teams in Venezuela, Aruba and the Dominican Republic are ready to guide you on the best products for your industrial needs.',
       call_label:'Call us now', email_label:'Send us an email',
-      contact_eyebrow:'We are here for you', contact_title_span:'CONTACT',
+      contact_eyebrow:'We are here for you', contact_title_branches:'BRANCHES', contact_title_span:'CONTACT',
       contact_desc:'Visit us or contact us directly. We serve clients in Venezuela, Aruba and the Dominican Republic.',
       contact_info_title:'Contact Information',
       lbl_phone:'Phone / WhatsApp', lbl_email:'Email Address', lbl_loc:'Locations', lbl_web:'Website',
@@ -851,7 +855,7 @@ footer{background:#f0f2f5;padding:52px 0 0;}
       cta_eyebrow:'Cont\u00e1ctenos hoy mismo', cta_title:'\u00bfLISTO PARA EQUIPAR SU EMPRESA?',
       cta_desc:'Nuestros equipos en Venezuela, Aruba y Rep\u00fablica Dominicana est\u00e1n disponibles para orientarle sobre los mejores productos.',
       call_label:'Ll\u00e1menos ahora', email_label:'Esc\u00edbanos',
-      contact_eyebrow:'Estamos para usted', contact_title_span:'CONTACTO',
+      contact_eyebrow:'Estamos para usted', contact_title_branches:'SUCURSALES', contact_title_span:'CONTACTO',
       contact_desc:'Vis\u00edtenos o cont\u00e1ctenos directamente. Atendemos clientes en Venezuela, Aruba y Rep\u00fablica Dominicana.',
       contact_info_title:'Informaci\u00f3n de Contacto',
       lbl_phone:'Tel\u00e9fono / WhatsApp', lbl_email:'Correo Electr\u00f3nico', lbl_loc:'Ubicaciones', lbl_web:'Sitio Web',
