@@ -579,7 +579,7 @@ footer{background:#f0f2f5;padding:52px 0 0;}
   <div class="hi">
     <div class="ht">
       <div class="pill">Venezuela &bull; Aruba &bull; Dominican Republic</div>
-      <h1 class="htitle">LIMPIOCA<br><span>INTERNATIONAL</span></h1>
+      <h1 class="htitle">LIMPIOCA<br><span>INTERNACIONAL</span></h1>
       <p class="hsub" data-t="hero_sub">Industrial Solutions of the Highest Standard</p>
       <p class="hdesc" data-t="hero_desc">Specialists in the sale of products, equipment and tools for industrial development and maintenance. Exclusive distribution and representation of the best brands across three countries.</p>
       <div class="hbtns">
@@ -636,7 +636,7 @@ footer{background:#f0f2f5;padding:52px 0 0;}
       </div>
       <div class="reveal">
         <div class="ew" data-t="about_eyebrow">Who We Are</div>
-        <h2 class="sh">LIMPIOCA<br><span>INTERNATIONAL</span></h2>
+        <h2 class="sh">LIMPIOCA<br><span>INTERNACIONAL</span></h2>
         <p class="sp" data-t="about_p1">Since 1970, Limpioca International has been a reference in the distribution of products, equipment and tools for industrial development and maintenance. Present in Venezuela, Aruba and the Dominican Republic.</p>
         <p class="sp" style="margin-top:12px;" data-t="about_p2">Backed by exclusive distribution agreements with the best brands, supported by highly qualified dealer networks across three countries, guaranteeing the best price-value ratio.</p>
         <div class="alist">
@@ -1094,6 +1094,52 @@ document.addEventListener('DOMContentLoaded', function(){
   if(selector){
     selector.classList.remove('hide');
   }
+});
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    function updateTitles(country) {
+        const isAruba = (country || '').toLowerCase().includes('aruba');
+
+        // Hero title
+        const hero = document.querySelector('.htitle');
+        if(hero){
+            hero.innerHTML = isAruba
+                ? 'LIMPIOCA<br><span>INTERNATIONAL</span>'
+                : 'LIMPIOCA<br><span>INTERNACIONAL</span>';
+        }
+
+        // About section title
+        const aboutTitle = document.querySelector('.sh');
+        if(aboutTitle){
+            aboutTitle.innerHTML = isAruba
+                ? 'LIMPIOCA<br><span>INTERNATIONAL</span>'
+                : 'LIMPIOCA<br><span>INTERNACIONAL</span>';
+        }
+
+        // About paragraph
+        document.querySelectorAll('p').forEach(p=>{
+            if(p.innerHTML.includes('Limpioca Internacional es referencia') ||
+               p.innerHTML.includes('Limpioca International es referencia')){
+
+                p.innerHTML = isAruba
+                    ? p.innerHTML.replace('Limpioca Internacional','Limpioca International')
+                    : p.innerHTML.replace('Limpioca International','Limpioca Internacional');
+            }
+        });
+    }
+
+    const buttons = document.querySelectorAll('.cs-card, .cb');
+
+    buttons.forEach(btn=>{
+        btn.addEventListener('click', function(){
+            updateTitles(this.innerText || '');
+        });
+    });
+
 });
 </script>
 
