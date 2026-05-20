@@ -1020,7 +1020,8 @@ footer{background:#f0f2f5;padding:52px 0 0;}
     }
     hideSelector();
     document.body.style.overflow = '';
-    try { sessionStorage.setItem('limpioca_sel', JSON.stringify({code:code, lang:lang})); } catch(e) {}
+    try {
+} catch(e) {}
   }
 
   document.addEventListener('DOMContentLoaded', function() {
@@ -1045,26 +1046,7 @@ footer{background:#f0f2f5;padding:52px 0 0;}
 
     // ── Restore saved country from sessionStorage ────────────────────────────
     var restored = false;
-    try {
-      var saved = sessionStorage.getItem('limpioca_sel');
-      if (saved) {
-        var parsed = JSON.parse(saved);
-        applyLang(parsed.lang);
-        swapLogos(parsed.code);
-        updateContacts(parsed.code);
-        if (cb) {
-          cb.style.display = 'inline-flex';
-          var f = document.getElementById('cb-flag');
-          var n = document.getElementById('cb-name');
-          if (f) f.textContent = FLAGS[parsed.code] || '';
-          if (n) n.textContent = CNAMES[parsed.code] || parsed.code;
-        }
-        hideSelector();
-        restored = true;
-      }
-    } catch(e) {}
-
-    if (!restored) { document.body.style.overflow = 'hidden'; }
+if (!restored) { document.body.style.overflow = 'hidden'; }
 
     // ── Sticky header ────────────────────────────────────────────────────────
     var hdr = document.getElementById('hdr');
@@ -1098,6 +1080,21 @@ footer{background:#f0f2f5;padding:52px 0 0;}
     document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
   });
 })();
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  try{
+    sessionStorage.removeItem('limpioca_sel');
+    localStorage.removeItem('limpioca_sel');
+  }catch(e){}
+
+  var selector = document.getElementById('cs');
+  if(selector){
+    selector.classList.remove('hide');
+  }
+});
 </script>
 
 </body>
