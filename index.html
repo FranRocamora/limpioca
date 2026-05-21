@@ -1005,11 +1005,42 @@ footer{background:#f0f2f5;padding:52px 0 0;}
     }
   }
 
+
+  function updateVirtualCatalogLinks(code) {
+    var isVenezuela = code === 've';
+    var pdfHref = 'LIMPIOCA%20VZLA.pdf';
+    var fallbackHref = '#products';
+    var selectors = [
+      'a[data-t="nav_virtual"]',
+      'a[data-t="btn_virtual"]',
+      'a.ccard.dk',
+      'a:has([data-t="cat_pdf"])'
+    ];
+    var links = [];
+    selectors.forEach(function(selector) {
+      try {
+        document.querySelectorAll(selector).forEach(function(el) {
+          if (links.indexOf(el) === -1) links.push(el);
+        });
+      } catch(e) {}
+    });
+    links.forEach(function(el) {
+      el.setAttribute('href', isVenezuela ? pdfHref : fallbackHref);
+      el.setAttribute('target', isVenezuela ? '_blank' : '_self');
+      if (isVenezuela) {
+        el.setAttribute('rel', 'noopener');
+      } else {
+        el.removeAttribute('rel');
+      }
+    });
+  }
+
   function pickCountry(code) {
     var lang = LANGS[code] || 'en';
     applyLang(lang);
     swapLogos(code);
     updateContacts(code);
+    updateVirtualCatalogLinks(code);
     var cb = document.getElementById('cb');
     if (cb) {
       cb.style.display = 'inline-flex';
