@@ -547,7 +547,7 @@ footer{background:#f0f2f5;padding:52px 0 0;}
           <div class="drop"><a href="#about" data-t="nav_company">Limpioca Internacional, C.A.</a><a href="#footer">Webmaster</a></div>
         </li>
         <li class="hd"><a href="#products" data-t="nav_catalog">Catalog</a>
-          <div class="drop"><a href="#products" target="_blank" data-t="nav_online">Online Catalog</a><a href="assets/LIMPIOCA-VZLA.pdf" target="_blank" data-t="nav_virtual" class="virtual-catalog-link">Virtual Catalog</a></div>
+          <div class="drop"><a href="#products" target="_blank" data-t="nav_online">Online Catalog</a><a href="./assets/LIMPIOCA-VZLA.pdf" download="LIMPIOCA-VZLA.pdf" data-t="nav_virtual">Virtual Catalog</a></div>
         </li>
         <li><a href="#contact" data-t="nav_branches">Branches</a></li>
         <li><a href="#contact" class="nav-cta" data-t="nav_contact">Contact Us</a></li>
@@ -563,7 +563,7 @@ footer{background:#f0f2f5;padding:52px 0 0;}
   <a href="#about" data-t="nav_about">About Us</a>
   <a href="#products" data-t="nav_catalog">Catalog</a>
   <a href="#products" target="_blank" data-t="nav_online">Online Catalog</a>
-  <a href="assets/LIMPIOCA-VZLA.pdf" target="_blank" data-t="nav_virtual" class="virtual-catalog-link">Virtual Catalog PDF</a>
+  <a href="./assets/LIMPIOCA-VZLA.pdf" download="LIMPIOCA-VZLA.pdf" data-t="nav_virtual">Virtual Catalog PDF</a>
   <a href="#contact" data-t="nav_branches">Branches</a>
   <a href="#contact" data-t="nav_contact">Contact Us</a>
   <div class="mc">
@@ -668,7 +668,7 @@ footer{background:#f0f2f5;padding:52px 0 0;}
     </div>
     <div class="pcta reveal">
       <a href="#products" class="btn bb2" style="font-size:16px;padding:15px 32px;" data-t="btn_full_catalog">Browse Full Catalog &rarr;</a>
-      <a href="#products" target="_blank" class="btn bo" style="color:var(--bb);border-color:var(--bb);font-size:16px;padding:15px 32px;" data-t="btn_virtual">Download Virtual Catalog</a>
+      <a href="./assets/LIMPIOCA-VZLA.pdf" download="LIMPIOCA-VZLA.pdf" class="btn bo" style="color:var(--bb);border-color:var(--bb);font-size:16px;padding:15px 32px;" data-t="btn_virtual">Download Virtual Catalog</a>
     </div>
   </div>
 </section>
@@ -731,7 +731,7 @@ footer{background:#f0f2f5;padding:52px 0 0;}
       </div>
       <div class="rc reveal">
         <a href="#products" target="_blank" class="ccard bl"><div><label data-t="cat_avail">Available now</label><span data-t="cat_online">Online Catalog 2026</span></div><div class="cci">&#x1f4cb;</div></a>
-        <a href="#products" target="_blank" class="ccard dk"><div><label data-t="cat_free">Free download</label><span data-t="cat_pdf">Virtual Catalog PDF</span></div><div class="cci">&#x1f4c4;</div></a>
+        <a href="./assets/LIMPIOCA-VZLA.pdf" download="LIMPIOCA-VZLA.pdf" class="ccard dk"><div><label data-t="cat_free">Free download</label><span data-t="cat_pdf">Virtual Catalog PDF</span></div><div class="cci">&#x1f4c4;</div></a>
         <div class="bxc">
           <h3 data-t="our_locations">Our Locations</h3>
           <div class="bxi"><div style="font-size:16px;"></div><a href="#contact" data-t="loc_ve">Venezuela — Main Office &amp; Dealers</a></div>
@@ -771,7 +771,7 @@ footer{background:#f0f2f5;padding:52px 0 0;}
         <ul>
           <li><a href="#products" data-t="fc_store">Online Store</a></li>
           <li><a href="#products" target="_blank" data-t="nav_online">Online Catalog</a></li>
-          <li><a href="assets/LIMPIOCA-VZLA.pdf" target="_blank" data-t="nav_virtual" class="virtual-catalog-link">Virtual Catalog PDF</a></li>
+          <li><a href="./assets/LIMPIOCA-VZLA.pdf" download="LIMPIOCA-VZLA.pdf" data-t="nav_virtual">Virtual Catalog PDF</a></li>
         </ul>
         <h4 style="margin-top:20px;" data-t="fc_lines">Product Lines</h4>
         <ul>
@@ -1005,28 +1005,11 @@ footer{background:#f0f2f5;padding:52px 0 0;}
     }
   }
 
-
-  function updateCatalogLinks(code) {
-    var pdfUrl = 'assets/LIMPIOCA-VZLA.pdf';
-    document.querySelectorAll('.virtual-catalog-link, a[data-t="nav_virtual"]').forEach(function(el) {
-      if (code === 've') {
-        el.href = pdfUrl;
-        el.target = '_blank';
-        el.rel = 'noopener';
-      } else {
-        el.href = '#products';
-        el.removeAttribute('target');
-        el.removeAttribute('rel');
-      }
-    });
-  }
-
   function pickCountry(code) {
     var lang = LANGS[code] || 'en';
     applyLang(lang);
     swapLogos(code);
     updateContacts(code);
-    updateCatalogLinks(code);
     var cb = document.getElementById('cb');
     if (cb) {
       cb.style.display = 'inline-flex';
