@@ -547,7 +547,7 @@ footer{background:#f0f2f5;padding:52px 0 0;}
           <div class="drop"><a href="#about" data-t="nav_company">Limpioca Internacional, C.A.</a><a href="#footer">Webmaster</a></div>
         </li>
         <li class="hd"><a href="#products" data-t="nav_catalog">Catalog</a>
-          <div class="drop"><a href="#products" target="_blank" data-t="nav_online">Online Catalog</a><a href="./LIMPIOCA%20VZLA.pdf" download="LIMPIOCA VZLA.pdf" data-catalog-pdf data-t="nav_virtual">Virtual Catalog</a></div>
+          <div class="drop"><a href="#products" target="_blank" data-t="nav_online">Online Catalog</a><a href="LIMPIOCA-VZLA.pdf" download="LIMPIOCA-VZLA.pdf" data-t="nav_virtual">Virtual Catalog</a></div>
         </li>
         <li><a href="#contact" data-t="nav_branches">Branches</a></li>
         <li><a href="#contact" class="nav-cta" data-t="nav_contact">Contact Us</a></li>
@@ -563,7 +563,7 @@ footer{background:#f0f2f5;padding:52px 0 0;}
   <a href="#about" data-t="nav_about">About Us</a>
   <a href="#products" data-t="nav_catalog">Catalog</a>
   <a href="#products" target="_blank" data-t="nav_online">Online Catalog</a>
-  <a href="./LIMPIOCA%20VZLA.pdf" download="LIMPIOCA VZLA.pdf" data-catalog-pdf data-t="nav_virtual">Virtual Catalog PDF</a>
+  <a href="LIMPIOCA-VZLA.pdf" download="LIMPIOCA-VZLA.pdf" data-t="nav_virtual">Virtual Catalog PDF</a>
   <a href="#contact" data-t="nav_branches">Branches</a>
   <a href="#contact" data-t="nav_contact">Contact Us</a>
   <div class="mc">
@@ -668,7 +668,7 @@ footer{background:#f0f2f5;padding:52px 0 0;}
     </div>
     <div class="pcta reveal">
       <a href="#products" class="btn bb2" style="font-size:16px;padding:15px 32px;" data-t="btn_full_catalog">Browse Full Catalog &rarr;</a>
-      <a href="./LIMPIOCA%20VZLA.pdf" download="LIMPIOCA VZLA.pdf" data-catalog-pdf class="btn bo" style="color:var(--bb);border-color:var(--bb);font-size:16px;padding:15px 32px;" data-t="btn_virtual">Download Virtual Catalog</a>
+      <a href="LIMPIOCA-VZLA.pdf" download="LIMPIOCA-VZLA.pdf" class="btn bo" style="color:var(--bb);border-color:var(--bb);font-size:16px;padding:15px 32px;" data-t="btn_virtual">Download Virtual Catalog</a>
     </div>
   </div>
 </section>
@@ -731,7 +731,7 @@ footer{background:#f0f2f5;padding:52px 0 0;}
       </div>
       <div class="rc reveal">
         <a href="#products" target="_blank" class="ccard bl"><div><label data-t="cat_avail">Available now</label><span data-t="cat_online">Online Catalog 2026</span></div><div class="cci">&#x1f4cb;</div></a>
-        <a href="./LIMPIOCA%20VZLA.pdf" download="LIMPIOCA VZLA.pdf" data-catalog-pdf class="ccard dk"><div><label data-t="cat_free">Free download</label><span data-t="cat_pdf">Virtual Catalog PDF</span></div><div class="cci">&#x1f4c4;</div></a>
+        <a href="LIMPIOCA-VZLA.pdf" download="LIMPIOCA-VZLA.pdf" class="ccard dk"><div><label data-t="cat_free">Free download</label><span data-t="cat_pdf">Virtual Catalog PDF</span></div><div class="cci">&#x1f4c4;</div></a>
         <div class="bxc">
           <h3 data-t="our_locations">Our Locations</h3>
           <div class="bxi"><div style="font-size:16px;"></div><a href="#contact" data-t="loc_ve">Venezuela — Main Office &amp; Dealers</a></div>
@@ -771,7 +771,7 @@ footer{background:#f0f2f5;padding:52px 0 0;}
         <ul>
           <li><a href="#products" data-t="fc_store">Online Store</a></li>
           <li><a href="#products" target="_blank" data-t="nav_online">Online Catalog</a></li>
-          <li><a href="./LIMPIOCA%20VZLA.pdf" download="LIMPIOCA VZLA.pdf" data-catalog-pdf data-t="nav_virtual">Virtual Catalog PDF</a></li>
+          <li><a href="LIMPIOCA-VZLA.pdf" download="LIMPIOCA-VZLA.pdf" data-t="nav_virtual">Virtual Catalog PDF</a></li>
         </ul>
         <h4 style="margin-top:20px;" data-t="fc_lines">Product Lines</h4>
         <ul>
@@ -939,26 +939,6 @@ footer{background:#f0f2f5;padding:52px 0 0;}
     }
   };
 
-
-
-  // Catalog PDF per country
-  // IMPORTANT for GitHub: upload these PDF files in the same folder as index.html:
-  // - LIMPIOCA VZLA.pdf
-  // - CATALOGO RD.pdf
-  var CATALOG_PDF = {
-    ve: { href: './LIMPIOCA%20VZLA.pdf', download: 'LIMPIOCA VZLA.pdf' },
-    do: { href: './CATALOGO%20RD.pdf', download: 'CATALOGO RD.pdf' },
-    aw: { href: './LIMPIOCA%20VZLA.pdf', download: 'LIMPIOCA VZLA.pdf' }
-  };
-
-  function updateCatalog(code) {
-    var pdf = CATALOG_PDF[code] || CATALOG_PDF.ve;
-    document.querySelectorAll('[data-catalog-pdf]').forEach(function(el) {
-      el.href = pdf.href;
-      el.setAttribute('download', pdf.download);
-    });
-  }
-
   function applyLang(lang) {
     var dict = T[lang] || T.en;
     document.querySelectorAll('[data-t]').forEach(function(el) {
@@ -1030,7 +1010,6 @@ footer{background:#f0f2f5;padding:52px 0 0;}
     applyLang(lang);
     swapLogos(code);
     updateContacts(code);
-    updateCatalog(code);
     var cb = document.getElementById('cb');
     if (cb) {
       cb.style.display = 'inline-flex';
@@ -1167,4 +1146,4 @@ document.addEventListener('DOMContentLoaded', function () {
 </body>
 </html>
 
-Sube TODOS estos archivos a GitHub Pages: index.html, LIMPIOCA-VZLA.pdf y la carpeta assets. El PDF principal está en la misma carpeta que index.html para evitar errores de ruta.
+
