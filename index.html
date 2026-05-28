@@ -469,6 +469,62 @@ footer{background:#f0f2f5;padding:52px 0 0;}
 }
 </style>
 
+
+<style>
+/* === PRODUCT DETAIL SECTION === */
+.product-detail{display:none;background:#fff;padding:86px 0;border-top:1px solid rgba(0,58,130,.08);}
+.product-detail.show{display:block;}
+.pd-top{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:28px;flex-wrap:wrap;}
+.pd-title-wrap{max-width:720px;}
+.pd-kicker{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--bb);margin-bottom:10px;}
+.pd-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,58px);line-height:1;color:var(--td);}
+.pd-title span{color:var(--bb);}
+.pd-desc{font-size:15px;color:var(--gm);line-height:1.7;margin-top:10px;max-width:680px;}
+.pd-actions{display:flex;gap:10px;flex-wrap:wrap;}
+.pd-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+.prod-card{background:#fff;border:1px solid rgba(0,58,130,.08);border-radius:18px;overflow:hidden;box-shadow:0 8px 28px rgba(0,58,130,.07);transition:all .25s;}
+.prod-card:hover{transform:translateY(-5px);box-shadow:0 18px 45px rgba(0,58,130,.13);}
+.prod-img{height:148px;background:linear-gradient(135deg,#eef5ff,#d9e8ff);display:flex;align-items:center;justify-content:center;font-size:54px;position:relative;}
+.prod-img::after{content:'';position:absolute;inset:14px;border:1px solid rgba(0,58,130,.08);border-radius:14px;}
+.prod-body{padding:19px 20px 20px;}
+.prod-code{font-size:11px;font-weight:700;color:var(--bb);letter-spacing:.6px;text-transform:uppercase;margin:-2px 0 8px;font-family:'Barlow Condensed',sans-serif;}
+.prod-body h4{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;text-transform:uppercase;color:var(--td);letter-spacing:.4px;margin-bottom:7px;}
+.prod-body p{font-size:13px;color:var(--gm);line-height:1.55;margin-bottom:14px;}
+.prod-meta{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:12px;border-top:1px solid var(--bp);}
+.prod-meta span{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--bb);}
+.prod-meta a{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;text-decoration:none;color:var(--td);}
+.cat-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px;}
+.cat-tab{border:1px solid rgba(0,58,130,.15);background:#fff;color:var(--td);border-radius:999px;padding:9px 14px;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;cursor:pointer;transition:all .2s;}
+.cat-tab:hover,.cat-tab.active{background:var(--bb);color:#fff;border-color:var(--bb);}
+@media(max-width:1024px){.pd-grid{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:760px){.product-detail{padding:64px 0;}.pd-grid{grid-template-columns:1fr 1fr;}.pd-actions{width:100%;}.pd-actions .btn{width:100%;justify-content:center;}.cat-tab{font-size:12px;padding:8px 11px;}}
+@media(max-width:520px){.pd-grid{grid-template-columns:1fr;}.prod-img{height:135px;}}
+
+/* === PRODUCT MODAL === */
+.product-modal{position:fixed;inset:0;z-index:10000;display:none;align-items:center;justify-content:center;padding:22px;background:rgba(1,25,63,.72);backdrop-filter:blur(8px);}
+.product-modal.show{display:flex;}
+.pm-card{width:min(920px,100%);background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 28px 90px rgba(0,0,0,.35);position:relative;display:grid;grid-template-columns:.92fr 1.08fr;animation:pmIn .22s ease;}
+@keyframes pmIn{from{opacity:0;transform:translateY(16px) scale(.98);}to{opacity:1;transform:none;}}
+.pm-close{position:absolute;top:14px;right:14px;width:38px;height:38px;border:none;border-radius:999px;background:rgba(1,25,63,.08);color:var(--bd);font-size:28px;line-height:1;cursor:pointer;z-index:2;transition:all .2s;}
+.pm-close:hover{background:var(--bb);color:#fff;}
+.pm-img{min-height:360px;background:linear-gradient(135deg,#eef5ff,#d9e8ff);display:flex;align-items:center;justify-content:center;font-size:118px;position:relative;overflow:hidden;}
+.pm-img::before{content:'LIMPIOCA';position:absolute;bottom:18px;left:22px;font-family:'Bebas Neue',sans-serif;font-size:72px;color:rgba(0,58,130,.07);letter-spacing:2px;}
+.pm-img::after{content:'';position:absolute;inset:26px;border:1px solid rgba(0,58,130,.1);border-radius:20px;}
+.pm-content{padding:44px 42px 38px;display:flex;flex-direction:column;justify-content:center;}
+.pm-tag{display:inline-flex;align-self:flex-start;margin-bottom:14px;background:var(--bp);color:var(--bb);border:1px solid rgba(0,58,130,.1);border-radius:999px;padding:6px 13px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;}
+.pm-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(34px,4vw,54px);line-height:.98;color:var(--td);margin-bottom:14px;}
+.pm-desc{font-size:15px;color:var(--gm);line-height:1.75;margin-bottom:24px;}
+.pm-list{display:grid;gap:10px;margin-bottom:28px;}
+.pm-list div{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--tb);font-weight:600;}
+.pm-dot{width:8px;height:8px;border-radius:50%;background:var(--bb);margin-top:6px;flex-shrink:0;}
+.pm-actions{display:flex;gap:12px;flex-wrap:wrap;}
+.pm-actions .btn{justify-content:center;}
+.prod-card{cursor:pointer;}
+.prod-meta a{pointer-events:none;}
+@media(max-width:760px){.pm-card{grid-template-columns:1fr;max-height:92vh;overflow-y:auto;}.pm-img{min-height:220px;font-size:82px;}.pm-content{padding:30px 24px 26px;}.pm-actions .btn{width:100%;}.pm-close{background:#fff;box-shadow:0 4px 14px rgba(0,0,0,.12);}}
+
+</style>
+
 </head>
 <body>
 <div id="logo-data" style="display:none"
@@ -659,19 +715,59 @@ footer{background:#f0f2f5;padding:52px 0 0;}
       <p class="sp" style="max-width:540px;margin:0 auto;" data-t="prod_desc">Six specialized lines to cover all maintenance, cleaning, gardening and industrial needs across all three countries.</p>
     </div>
     <div class="pg">
-      <div class="pc reveal"><div class="pt p1"><span class="ptag" data-t="ptag">Industrial</span></div><div class="pb2"><h3 data-t="p1_h">Construction &amp; Maintenance</h3><p data-t="p1_p">High-performance tools and equipment for construction and maintenance of industrial and commercial facilities.</p><a href="#products" class="plink" data-t="view_products">View products &rarr;</a></div></div>
-      <div class="pc reveal"><div class="pt p2"></div><div class="pb2"><h3 data-t="p2_h">Industrial Cleaning</h3><p data-t="p2_p">Accessories and consumables for professional cleaning in industrial, commercial and maintenance environments.</p><a href="#products" class="plink" data-t="view_products">View products &rarr;</a></div></div>
-      <div class="pc reveal"><div class="pt p3"></div><div class="pb2"><h3 data-t="p3_h">Gardening</h3><p data-t="p3_p">Specialized equipment for professional gardening, landscaping and green area maintenance.</p><a href="#products" class="plink" data-t="view_products">View products &rarr;</a></div></div>
-      <div class="pc reveal"><div class="pt p4"></div><div class="pb2"><h3 data-t="p4_h">Hydrojets</h3><p data-t="p4_p">High-pressure washing systems for industrial, automotive and surface cleaning.</p><a href="#products" class="plink" data-t="view_products">View products &rarr;</a></div></div>
-      <div class="pc reveal"><div class="pt p5"></div><div class="pb2"><h3 data-t="p5_h">Cargo Line</h3><p data-t="p5_p">Products and equipment for the safe handling, movement and transport of heavy loads.</p><a href="#products" class="plink" data-t="view_products">View products &rarr;</a></div></div>
-      <div class="pc reveal"><div class="pt p6"></div><div class="pb2"><h3 data-t="p6_h">Brush Manufacturing</h3><p data-t="p6_p">Industrial and maintenance brushes manufactured to the highest quality standards.</p><a href="#products" class="plink" data-t="view_products">View products &rarr;</a></div></div>
+      <div class="pc reveal"><div class="pt p1"><span class="ptag" data-t="ptag">Industrial</span></div><div class="pb2"><h3 data-t="p1_h">Construction &amp; Maintenance</h3><p data-t="p1_p">High-performance tools and equipment for construction and maintenance of industrial and commercial facilities.</p><a href="#product-detail" class="plink" data-category="construction" data-t="view_products">View products &rarr;</a></div></div>
+      <div class="pc reveal"><div class="pt p2"></div><div class="pb2"><h3 data-t="p2_h">Industrial Cleaning</h3><p data-t="p2_p">Accessories and consumables for professional cleaning in industrial, commercial and maintenance environments.</p><a href="#product-detail" class="plink" data-category="cleaning" data-t="view_products">View products &rarr;</a></div></div>
+      <div class="pc reveal"><div class="pt p3"></div><div class="pb2"><h3 data-t="p3_h">Gardening</h3><p data-t="p3_p">Specialized equipment for professional gardening, landscaping and green area maintenance.</p><a href="#product-detail" class="plink" data-category="gardening" data-t="view_products">View products &rarr;</a></div></div>
+      <div class="pc reveal"><div class="pt p4"></div><div class="pb2"><h3 data-t="p4_h">Hydrojets</h3><p data-t="p4_p">High-pressure washing systems for industrial, automotive and surface cleaning.</p><a href="#product-detail" class="plink" data-category="hydrojets" data-t="view_products">View products &rarr;</a></div></div>
+      <div class="pc reveal"><div class="pt p5"></div><div class="pb2"><h3 data-t="p5_h">Cargo Line</h3><p data-t="p5_p">Products and equipment for the safe handling, movement and transport of heavy loads.</p><a href="#product-detail" class="plink" data-category="cargo" data-t="view_products">View products &rarr;</a></div></div>
+      <div class="pc reveal"><div class="pt p6"></div><div class="pb2"><h3 data-t="p6_h">Brush Manufacturing</h3><p data-t="p6_p">Industrial and maintenance brushes manufactured to the highest quality standards.</p><a href="#product-detail" class="plink" data-category="brushes" data-t="view_products">View products &rarr;</a></div></div>
     </div>
     <div class="pcta reveal">
-      <a href="#products" class="btn bb2" style="font-size:16px;padding:15px 32px;" data-t="btn_full_catalog">Browse Full Catalog &rarr;</a>
+      <a href="#product-detail" class="btn bb2" style="font-size:16px;padding:15px 32px;" data-category="construction" data-t="btn_full_catalog">Browse Full Catalog &rarr;</a>
       <a href="./LIMPIOCA%20VZLA.pdf" download="LIMPIOCA VZLA.pdf" data-catalog-pdf class="btn bo" style="color:var(--bb);border-color:var(--bb);font-size:16px;padding:15px 32px;" data-t="btn_virtual">Download Virtual Catalog</a>
     </div>
   </div>
 </section>
+
+
+<!-- PRODUCT DETAIL / CATEGORY PRODUCTS -->
+<section id="product-detail" class="product-detail">
+  <div class="sec">
+    <div class="pd-top">
+      <div class="pd-title-wrap">
+        <div class="pd-kicker" id="pd-kicker">Productos por categoría</div>
+        <h2 class="pd-title" id="pd-title">Construcción y <span>Mantenimiento</span></h2>
+        <p class="pd-desc" id="pd-desc">Estos son productos de ejemplo. Luego puedes reemplazarlos por los productos reales de Limpioca con imágenes, descripciones y precios.</p>
+      </div>
+      <div class="pd-actions">
+        <a href="#products" class="btn bo" style="color:var(--bb);border-color:var(--bb);">Volver a líneas</a>
+        <a href="#contact" class="btn bb2">Solicitar cotización</a>
+      </div>
+    </div>
+    <div class="cat-tabs" id="cat-tabs"></div>
+    <div class="pd-grid" id="pd-grid"></div>
+  </div>
+</section>
+
+
+
+<!-- PRODUCT MODAL -->
+<div class="product-modal" id="product-modal" aria-hidden="true">
+  <div class="pm-card" role="dialog" aria-modal="true" aria-labelledby="pm-title">
+    <button class="pm-close" id="pm-close" aria-label="Cerrar">&times;</button>
+    <div class="pm-img" id="pm-img">🧰</div>
+    <div class="pm-content">
+      <div class="pm-tag" id="pm-tag">Producto</div>
+      <h3 class="pm-title" id="pm-title">Producto</h3>
+      <p class="pm-desc" id="pm-desc">Descripción del producto.</p>
+      <div class="pm-list" id="pm-list"></div>
+      <div class="pm-actions">
+        <a href="#contact" class="btn bb2" id="pm-quote">Cotizar producto</a>
+        <button class="btn bo" id="pm-secondary" style="color:var(--bb);border-color:var(--bb);">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- WHY -->
 <section id="why">
@@ -1164,7 +1260,595 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  const productData = {
+    construction: {
+      es:{title:'Construcción y <span>Mantenimiento</span>', desc:'Equipos reales para trabajos de construcción, mantenimiento industrial y soporte técnico.'},
+      en:{title:'Construction & <span>Maintenance</span>', desc:'Real equipment for construction work, industrial maintenance and technical support.'},
+      icon:'🏗️',
+      products:[
+        {
+          esName:'ALISADORA DE CONCRETO 36″',
+          enName:'36″ Concrete Power Trowel',
+          esDesc:'Alisadora de concreto 36″ para acabado y nivelación de superficies de concreto. Incluye servicio técnico, repuestos y accesorios.',
+          enDesc:'36″ concrete power trowel for finishing and leveling concrete surfaces. Includes technical service, spare parts and accessories.',
+          esTag:'Construcción',
+          enTag:'Construction',
+          code:'L-CACRMT364',
+          specs:[
+            ['Código','L-CACRMT364'],
+            ['Motor','Honda GX160 5.5 HP'],
+            ['Masa de operación','75 Kg'],
+            ['Tamaño de corte','90 cm'],
+            ['Tamaño de rejilla','100 cm x 100 cm x 50 cm'],
+            ['Servicio','Servicio técnico, repuestos y accesorios'],
+            ['Etiquetas','Alisador de concreto, Roca']
+          ]
+        },
+        {
+          esName:'ALISADORA DE CONCRETO 46″',
+          enName:'46″ Concrete Power Trowel',
+          esDesc:'Alisadora de concreto 46″ para acabado profesional, nivelación y mantenimiento de superficies de concreto de mayor tamaño. Incluye servicio técnico, repuestos y accesorios.',
+          enDesc:'46″ concrete power trowel for professional finishing, leveling and maintenance of larger concrete surfaces. Includes technical service, spare parts and accessories.',
+          esTag:'Construcción',
+          enTag:'Construction',
+          code:'L-CACRMT464',
+          specs:[
+            ['Código','L-CACRMT464'],
+            ['Motor','Honda GX270 9.0 HP'],
+            ['Masa de operación','125 Kg'],
+            ['Tamaño de corte','117 cm'],
+            ['Tamaño de rejilla','121 cm'],
+            ['Servicio','Servicio técnico, repuestos y accesorios'],
+            ['Etiquetas','Alisadora de concreto 46″, Roca']
+          ]
+        }
+        ,
+        {
+          esName:'ALISADORA DE CONCRETO DOBLE',
+          enName:'Double Concrete Power Trowel',
+          esDesc:'Alisadora de concreto doble para trabajos de acabado profesional en grandes superficies. Incluye servicio técnico, repuestos y accesorios.',
+          enDesc:'Double concrete power trowel for professional finishing work on large surfaces. Includes technical service, spare parts and accessories.',
+          esTag:'Construcción',
+          enTag:'Construction',
+          code:'L-ACDMRT730',
+          specs:[
+            ['Código','L-ACDMRT730'],
+            ['Motor','Honda GX670 24 HP (arranque eléctrico)'],
+            ['Velocidad de cuchilla','130-150 rpm'],
+            ['Ancho de trabajo','1860 mm'],
+            ['Peso','280 Kg'],
+            ['Servicio','Servicio técnico, repuestos y accesorios'],
+            ['Etiquetas','Alisadora de concreto doble3, Roca']
+          ]
+        },
+        {
+          esName:'CORTADORA DE BLOQUE',
+          enName:'Block Cutter',
+          esDesc:'Cortadora de bloque manual para corte de ladrillo y adoquín. Equipo práctico para trabajos de construcción y mantenimiento. Incluye servicio técnico.',
+          enDesc:'Manual block cutter for brick and paving stone cutting. Practical equipment for construction and maintenance work. Includes technical service.',
+          esTag:'Construcción',
+          enTag:'Construction',
+          code:'L-CCBMVS420',
+          specs:[
+            ['Código','L-CCBMVS420'],
+            ['Tamaño de disco','42 cm'],
+            ['Longitud de corte','14 cm'],
+            ['Conducción','Manual'],
+            ['Utilidad','Ladrillo y adoquín'],
+            ['Servicio','Servicio técnico'],
+            ['Etiquetas','Cortadora de bloque, Roca']
+          ]
+        },
+        {
+          esName:'CORTADORA DE CONCRETO',
+          enName:'Concrete Cutter',
+          esDesc:'Cortadora de concreto con motor Honda GX390 13 HP, diseñada para trabajos de corte en concreto con empuje manual y ajuste de profundidad por mango con rotación. Incluye servicio técnico, repuestos y accesorios.',
+          enDesc:'Concrete cutter with Honda GX390 13 HP engine, designed for concrete cutting work with manual push drive and depth adjustment through rotating handle. Includes technical service, spare parts and accessories.',
+          esTag:'Construcción',
+          enTag:'Construction',
+          code:'L-CCCRMT164',
+          specs:[
+            ['Código','L-CCCRMT164'],
+            ['Motor','Honda GX390 13 HP'],
+            ['Tamaño de corte','30-40 cm'],
+            ['Profundidad de corte','14 cm'],
+            ['Tipo de conducción','Empuje manual'],
+            ['Ajuste de profundidad','Mango con rotación'],
+            ['Dimensiones','155 cm x 60 cm x 95 cm'],
+            ['Servicio','Servicio técnico, repuestos y accesorios'],
+            ['Etiquetas','Cortadora de concreto, Honda, Roca']
+          ]
+        },
+        {
+          esName:'ESCARIFICADORA',
+          enName:'Scarifier',
+          esDesc:'Escarificadora con motor Honda GX160 5.5 HP para preparación, limpieza y tratamiento de superficies en trabajos de construcción y mantenimiento. Incluye servicio técnico, repuestos y accesorios.',
+          enDesc:'Scarifier with Honda GX160 5.5 HP engine for surface preparation, cleaning and treatment in construction and maintenance work. Includes technical service, spare parts and accessories.',
+          esTag:'Construcción',
+          enTag:'Construction',
+          code:'L-CEMC84',
+          specs:[
+            ['Código','L-CEMC84'],
+            ['Motor','Honda GX160 5.5 HP'],
+            ['Ancho de trabajo','200 mm'],
+            ['Masa de operación','61 Kg'],
+            ['Peso','330 Kg'],
+            ['Servicio','Servicio técnico, repuestos y accesorios'],
+            ['Etiquetas','Escarificadora, Roca']
+          ]
+        },
+        {
+          esName:'MEZCLADORA DE CEMENTO',
+          enName:'Cement Mixer',
+          esDesc:'Mezcladora de cemento con motor Honda GX240 8.0 HP, disponible en versión eléctrica o diesel. Diseñada para mezclado de concreto en obras de construcción. Incluye servicio técnico, repuestos y accesorios.',
+          enDesc:'Cement mixer with Honda GX240 8.0 HP engine, available in electric or diesel version. Designed for concrete mixing on construction sites. Includes technical service, spare parts and accessories.',
+          esTag:'Construcción',
+          enTag:'Construction',
+          code:'L-CMCRMX90R',
+          specs:[
+            ['Código','L-CMCRMX90R'],
+            ['Motor','Honda GX240 8.0 HP (eléctrico o diesel)'],
+            ['Masa de operación','373 Kg'],
+            ['Capacidad de mezclado','260 L'],
+            ['Capacidad del tambor','350 L'],
+            ['Dimensiones','196 cm x 125 cm x 159 cm'],
+            ['Servicio','Servicio técnico, repuestos y accesorios'],
+            ['Etiquetas','Mezclador de concreto Roca, Roca']
+          ]
+        },
+        {
+          esName:'RANA COMPACTADORA',
+          enName:'Plate Compactor',
+          esDesc:'Rana compactadora con motor Honda GX160 5.5 HP para compactación de suelos, bases y superficies en obras de construcción. Incluye servicio técnico, repuestos y accesorios.',
+          enDesc:'Plate compactor with Honda GX160 5.5 HP engine for compacting soil, bases and surfaces on construction sites. Includes technical service, spare parts and accessories.',
+          esTag:'Construcción',
+          enTag:'Construction',
+          code:'L-CRCMS1004',
+          specs:[
+            ['Código','L-CRCMS1004'],
+            ['Motor','Honda GX160 5.5 HP'],
+            ['Masa de operación','93 Kg'],
+            ['Frecuencia','7000 vpm'],
+            ['Fuerza centrífuga','19.8 Kn'],
+            ['Profundidad de compactación','30 cm'],
+            ['Velocidad de recorrido','45 cm/s'],
+            ['Eficiencia','770 m2 / h'],
+            ['Tamaño del plato','46 cm x 61 cm'],
+            ['Dimensiones','110 cm x 46 cm x 66 cm'],
+            ['Servicio','Servicio técnico, repuestos y accesorios'],
+            ['Etiquetas','Rana compactadora, Roca']
+          ]
+        },
+        {
+          esName:'RANA COMPACTADORA',
+          enName:'Plate Compactor',
+          esDesc:'Rana compactadora con motor Honda GX160 5.5 HP, mayor masa de operación y fuerza centrífuga para compactación exigente en construcción. Incluye servicio técnico, repuestos y accesorios.',
+          enDesc:'Plate compactor with Honda GX160 5.5 HP engine, higher operating mass and centrifugal force for demanding construction compaction work. Includes technical service, spare parts and accessories.',
+          esTag:'Construcción',
+          enTag:'Construction',
+          code:'L-CRCRMSH16',
+          specs:[
+            ['Código','L-CRCRMSH16'],
+            ['Motor','Honda GX160 5.5 HP'],
+            ['Masa de operación','160 Kg'],
+            ['Frecuencia','4000 vpm'],
+            ['Fuerza centrífuga','30.5 Kn'],
+            ['Profundidad de compactación','50 cm'],
+            ['Velocidad de recorrido','25 cm/s'],
+            ['Eficiencia','570 m2 / h'],
+            ['Tamaño del plato','76 cm x 37 cm'],
+            ['Dimensiones','86 cm x 57 cm x 93 cm'],
+            ['Servicio','Servicio técnico, repuestos y accesorios'],
+            ['Etiquetas','Rana compactadora, Roca']
+          ]
+        },
+        {
+          esName:'RANA COMPACTADORA',
+          enName:'Plate Compactor',
+          esDesc:'Rana compactadora con motor Honda GX270 9 HP para trabajos de compactación profunda y alto rendimiento en obras. Incluye servicio técnico, repuestos y accesorios.',
+          enDesc:'Plate compactor with Honda GX270 9 HP engine for deep compaction and high-performance construction work. Includes technical service, spare parts and accessories.',
+          esTag:'Construcción',
+          enTag:'Construction',
+          code:'L-CRCRMS330',
+          specs:[
+            ['Código','L-CRCRMS330'],
+            ['Motor','Honda GX270 9 HP'],
+            ['Masa de operación','321 Kg'],
+            ['Frecuencia','3750 vpm'],
+            ['Fuerza centrífuga','38 Kn'],
+            ['Profundidad de compactación','90 cm'],
+            ['Velocidad de recorrido','35 cm/s'],
+            ['Eficiencia','650 m2 / h'],
+            ['Tamaño del plato','89 cm x 67 cm'],
+            ['Dimensiones','178 cm x 67 cm x 90 cm'],
+            ['Servicio','Servicio técnico, repuestos y accesorios'],
+            ['Etiquetas','Rana compactadora, Roca']
+          ]
+        },
+        {
+          esName:'VIBRADOR DE DOS RODILLOS',
+          enName:'Two-Roller Vibratory Roller',
+          esDesc:'Vibrador de dos rodillos con motor Lombardini 11 HP para compactación de superficies en construcción. Incluye servicio técnico, repuestos y accesorios.',
+          enDesc:'Two-roller vibratory roller with Lombardini 11 HP engine for surface compaction in construction. Includes technical service, spare parts and accessories.',
+          esTag:'Construcción',
+          enTag:'Construction',
+          code:'L-LV2RMDR65',
+          specs:[
+            ['Código','L-LV2RMDR65'],
+            ['Motor','Lombardini 15LD440 11 HP'],
+            ['Diámetro del rodillo','650 mm x 404 mm'],
+            ['Fuerza centrífuga','21 Km'],
+            ['Frecuencia de vibración','3300 vpm / 55 Hz'],
+            ['Velocidad de desplazamiento','0 – 3.6 Km/h'],
+            ['Capacidad de tanque de agua','65 L'],
+            ['Servicio','Servicio técnico, repuestos y accesorios'],
+            ['Etiquetas','Honda, Roca, Vibrador de dos rodillos']
+          ]
+        },
+        {
+          esName:'VIBRADOR DE UN RODILLO',
+          enName:'Single-Roller Vibratory Roller',
+          esDesc:'Vibrador de un rodillo con motor Honda GX160 5.5 HP para compactación y acabado de superficies. Incluye servicio técnico, repuestos y accesorios.',
+          enDesc:'Single-roller vibratory roller with Honda GX160 5.5 HP engine for surface compaction and finishing. Includes technical service, spare parts and accessories.',
+          esTag:'Construcción',
+          enTag:'Construction',
+          code:'L-CVC1RSR58',
+          specs:[
+            ['Código','L-CVC1RSR58'],
+            ['Motor','Honda GX160 5.5 HP'],
+            ['Diámetro del rodillo','580 mm x 400 mm'],
+            ['Fuerza centrífuga','28.5 Km'],
+            ['Frecuencia de vibración','4560 vpm / 76 Hz'],
+            ['Velocidad de desplazamiento','0 – 1.5 Km/h'],
+            ['Capacidad de tanque de agua','15 L'],
+            ['Servicio','Servicio técnico, repuestos y accesorios'],
+            ['Etiquetas','Honda, Roca, Vibrador de un rodillo']
+          ]
+        },
+        {
+          esName:'VIBRADOR ELÉCTRICO',
+          enName:'Electric Vibrator',
+          esDesc:'Vibrador eléctrico monofásico para trabajos de compactación de concreto. Incluye servicio técnico, repuestos y accesorios.',
+          enDesc:'Single-phase electric vibrator for concrete compaction work. Includes technical service, spare parts and accessories.',
+          esTag:'Construcción',
+          enTag:'Construction',
+          code:'L-CRMVE',
+          specs:[
+            ['Código','L-CRMVE'],
+            ['Motor','Monofásico 1.5 Kw – 120V/60Hz'],
+            ['Velocidad','3000-3600 rpm'],
+            ['Diámetro de vibración','1.25 mm / 12.000 vpm'],
+            ['Peso','13 Kg'],
+            ['Servicio','Servicio técnico, repuestos y accesorios'],
+            ['Etiquetas','Roca, Vibrador eléctrico Roca']
+          ]
+        },
+        {
+          esName:'VIBRADORA A GASOLINA',
+          enName:'Gasoline Concrete Vibrator',
+          esDesc:'Vibradora a gasolina de 5.5 HP para compactación de concreto, con manguera de 6 m y productividad de 10 m3/h. Incluye servicio técnico, repuestos y accesorios.',
+          enDesc:'5.5 HP gasoline concrete vibrator for concrete compaction, with 6 m hose and 10 m3/h productivity. Includes technical service, spare parts and accessories.',
+          esTag:'Construcción',
+          enTag:'Construction',
+          code:'L-CVGLTZB50',
+          specs:[
+            ['Código','L-CVGLTZB50'],
+            ['Motor','Gasolina 5.5 HP'],
+            ['Velocidad','3600 rpm'],
+            ['Tanque de aceite','1 L'],
+            ['Max vibración','1.2 m'],
+            ['Productividad','10 m3/h'],
+            ['Manguera','6 m'],
+            ['Dimensiones','540 mm x 395 mm x 435 mm'],
+            ['Servicio','Servicio técnico, repuestos y accesorios'],
+            ['Etiquetas','Roca, Vibrador a gasolina']
+          ]
+        },
+        {
+          esName:'VIBRADORA DE 5.5 HP A GASOLINA',
+          enName:'5.5 HP Gasoline Concrete Vibrator',
+          esDesc:'Vibradora de 5.5 HP a gasolina con motor Honda GX160, cabezal vibratorio y manguera de 8 m. Incluye servicio técnico, repuestos y accesorios.',
+          enDesc:'5.5 HP gasoline concrete vibrator with Honda GX160 engine, vibrating head and 8 m hose. Includes technical service, spare parts and accessories.',
+          esTag:'Construcción',
+          enTag:'Construction',
+          code:'L-LVG5MVDR4',
+          specs:[
+            ['Código','L-LVG5MVDR4'],
+            ['Motor','Honda GX160 5.5 HP'],
+            ['Velocidad','3000-3600 rpm'],
+            ['Cabezal vibratorio','70 x 442 mm'],
+            ['Diámetro de vibración','1.4 mm / 12.000 vpm'],
+            ['Peso','17 Kg'],
+            ['Incluye','Manguera de 8 mt'],
+            ['Servicio','Servicio técnico, repuestos y accesorios'],
+            ['Etiquetas','Roca, Vibrador 5.5 HP gasolina']
+          ]
+        },
+        {
+          esName:'VIBRADORA DE 5 HP A GASOLINA',
+          enName:'5 HP Gasoline Concrete Vibrator',
+          esDesc:'Vibradora de 5 HP a gasolina con motor Honda GX160 5.5 HP, cabezal vibratorio y manguera de 8 m. Incluye servicio técnico, repuestos y accesorios.',
+          enDesc:'5 HP gasoline concrete vibrator with Honda GX160 5.5 HP engine, vibrating head and 8 m hose. Includes technical service, spare parts and accessories.',
+          esTag:'Construcción',
+          enTag:'Construction',
+          code:'L-LVG5MVDR4',
+          specs:[
+            ['Código','L-LVG5MVDR4'],
+            ['Motor','Honda GX160 5.5 HP'],
+            ['Velocidad','3000-3600 rpm'],
+            ['Cabezal vibratorio','70 mm x 442 mm'],
+            ['Diámetro de vibración','1.4 mm / 12.000 vpm'],
+            ['Peso','17 Kg'],
+            ['Incluye','Manguera de 8 mt'],
+            ['Servicio','Servicio técnico, repuestos y accesorios'],
+            ['Etiquetas','Roca, Vibrador 5 HP gasolina']
+          ]
+        }
+
+      ]
+    },
+    cleaning: {
+      es:{title:'Limpieza <span>Industrial</span>', desc:'Productos para limpieza profesional, aseo industrial, hotelería y mantenimiento.'},
+      en:{title:'Industrial <span>Cleaning</span>', desc:'Products for professional cleaning, industrial maintenance, hospitality and janitorial operations.'},
+      icon:'🧼',
+      products:[
+        {
+          esName:'CARRO DE LIMPIEZA CLÁSICO',
+          enName:'Classic Cleaning Cart',
+          esDesc:'Carro de limpieza clásico para organizar y transportar implementos de aseo. Solución ideal para limpieza y mantenimiento en la industria hotelera.',
+          enDesc:'Classic cleaning cart for organizing and transporting janitorial tools. Ideal solution for cleaning and maintenance in the hospitality industry.',
+          esTag:'Limpieza',
+          enTag:'Cleaning',
+          code:'L-LCLFG6189',
+          specs:[
+            ['Código','L-LCLFG6189'],
+            ['Dimensiones','152.4 cm x 55.9 cm x 127 cm'],
+            ['Peso','46 Kg'],
+            ['Color','Negro y plata'],
+            ['Utilidad','Solución para limpieza y aseo en la industria hotelera'],
+            ['Servicio','Repuestos y accesorios']
+          ]
+        }
+      ]
+    },
+    gardening: {
+      es:{title:'Jardinería <span>Profesional</span>', desc:'Equipos y accesorios de ejemplo para mantenimiento de áreas verdes, jardines y paisajismo.'},
+      en:{title:'Professional <span>Gardening</span>', desc:'Sample equipment and accessories for green-area maintenance, gardens and landscaping.'},
+      icon:'🌿',
+      products:[
+        {
+          esName:'PALA GRANDE DE ALUMINIO',
+          enName:'Large Aluminum Shovel',
+          esDesc:'Pala grande de aluminio para trabajos de jardinería, mantenimiento de áreas verdes y uso general.',
+          enDesc:'Large aluminum shovel for gardening work, green-area maintenance and general use.',
+          esTag:'Jardinería',
+          enTag:'Gardening',
+          code:'L-LPPAYY130',
+          specs:[
+            ['Código','L-LPPAYY130'],
+            ['Dimensiones','164 cm x 38 cm x 16 cm'],
+            ['Color','Plateado'],
+            ['Categoría','Jardinería'],
+            ['Etiqueta','Pala grande aluminio']
+          ]
+        },
+        {
+          esName:'PALA GRANDE PLÁSTICA',
+          enName:'Large Plastic Shovel',
+          esDesc:'Pala grande plástica color gris para trabajos de jardinería, mantenimiento y manejo de materiales ligeros.',
+          enDesc:'Large gray plastic shovel for gardening, maintenance and light material handling tasks.',
+          esTag:'Jardinería',
+          enTag:'Gardening',
+          code:'L-LPPBYY110',
+          specs:[
+            ['Código','L-LPPBYY110'],
+            ['Dimensiones','164 cm x 38 cm x 16 cm'],
+            ['Color','Gris'],
+            ['Categoría','Jardinería'],
+            ['Etiqueta','Pala grande plástico']
+          ]
+        }
+      ]
+    },
+    hydrojets: {
+      es:{title:'Hidrojets y <span>Alta Presión</span>', desc:'Hidrolimpiadores e hidrolavadoras para lavado profesional con alta presión.'},
+      en:{title:'Hydrojets & <span>High Pressure</span>', desc:'Pressure washers and hydro cleaners for professional high-pressure cleaning.'},
+      icon:'💦',
+      products:[
+        {
+          esName:'HIDROLAVADORA 3100 PSI',
+          enName:'3100 PSI Pressure Washer',
+          esDesc:'Hidrolavadora a gasolina de 3100 PSI para limpieza profesional de superficies, equipos y áreas industriales. Incluye servicio técnico, repuestos y accesorios.',
+          enDesc:'3100 PSI gasoline pressure washer for professional cleaning of surfaces, equipment and industrial areas. Includes technical service, spare parts and accessories.',
+          esTag:'Hidrojets',
+          enTag:'Hydrojets',
+          code:'L-HGPE3170R',
+          specs:[
+            ['Código','L-HGPE3170R'],
+            ['Motor','Be Pressure 7 HP'],
+            ['Presión','3100 PSI'],
+            ['Caudal','2.5 GPM'],
+            ['Bomba','BE Axial 3100'],
+            ['Servicio','Servicio técnico, repuestos y accesorios'],
+            ['Categoría','Hidrolimpiadores a gasolina'],
+            ['Etiqueta','Hidrolimpiador a gasolina 3100 PSI']
+          ]
+        }
+      ]
+    },
+    cargo: {
+      es:{title:'Línea de <span>Carga</span>', desc:'Productos para movimiento, transporte y manejo seguro de cargas.'},
+      en:{title:'Cargo <span>Line</span>', desc:'Products for moving, transporting and safely handling loads.'},
+      icon:'📦',
+      products:[
+        {
+          esName:'CARRETILLA CON RUEDA NEUMÁTICA REFORZADA',
+          enName:'Wheelbarrow with Reinforced Pneumatic Wheel',
+          esDesc:'Carretilla con rueda neumática reforzada para manejo de carga y trabajos de transporte en entornos industriales, comerciales y de mantenimiento.',
+          enDesc:'Wheelbarrow with reinforced pneumatic wheel for load handling and transport work in industrial, commercial and maintenance environments.',
+          esTag:'Carga',
+          enTag:'Cargo',
+          code:'L-CCRNC1860',
+          specs:[
+            ['Código','L-CCRNC1860'],
+            ['Producto','Rueda para carrucha neumática reforzada'],
+            ['Capacidad','500 Lb'],
+            ['Categoría','Carga']
+          ]
+        }
+      ]
+    },
+    brushes: {
+      es:{title:'Fabricación de <span>Cepillos</span>', desc:'Cepillos para limpieza industrial, mantenimiento y barrido de escombros pesados.'},
+      en:{title:'Brush <span>Manufacturing</span>', desc:'Brushes for industrial cleaning, maintenance and sweeping heavy debris.'},
+      icon:'🧹',
+      products:[
+        {
+          esName:'CEPILLO CERDAS SINTÉTICAS DE 24″',
+          enName:'24″ Synthetic Bristle Brush',
+          esDesc:'Cepillo de cerdas sintéticas de 24″ con cerdas cortas y fuertes, ideal para barrer fácilmente escombros pesados.',
+          enDesc:'24″ synthetic bristle brush with short, strong bristles, ideal for easily sweeping heavy debris.',
+          esTag:'Cepillos',
+          enTag:'Brushes',
+          code:'L-LCCS41891',
+          specs:[
+            ['Código','L-LCCS41891'],
+            ['Largo','6.05 cm'],
+            ['Ancho','60.96 cm'],
+            ['Material','Cerdas sintéticas'],
+            ['Colores','Azul, amarillo, verde, blanco y rojo'],
+            ['Descripción','Cerdas cortas y fuertes para fácilmente barrer los escombros pesados'],
+            ['Categoría','Cepillos'],
+            ['Etiqueta','Cepillo cerdas sintéticas de 24″']
+          ]
+        }
+      ]
+    }
+  };
+
+  const labels = {
+    es:{kicker:'Productos por categoría', back:'Volver a líneas', quote:'Solicitar cotización', view:'Consultar', tabs:{construction:'Construcción',cleaning:'Limpieza',gardening:'Jardinería',hydrojets:'Hidrojets',cargo:'Carga',brushes:'Cepillos'}},
+    en:{kicker:'Products by category', back:'Back to lines', quote:'Request a quote', view:'Ask about it', tabs:{construction:'Construction',cleaning:'Cleaning',gardening:'Gardening',hydrojets:'Hydrojets',cargo:'Cargo',brushes:'Brushes'}}
+  };
+
+  function lang(){ return (document.documentElement.getAttribute('lang') || 'es').slice(0,2) === 'en' ? 'en' : 'es'; }
+
+  function renderTabs(active){
+    const l = lang();
+    const wrap = document.getElementById('cat-tabs');
+    if(!wrap) return;
+    wrap.innerHTML = Object.keys(productData).map(key => `<button class="cat-tab ${key===active?'active':''}" data-cat-tab="${key}">${labels[l].tabs[key]}</button>`).join('');
+  }
+
+  function showCategoryProducts(category){
+    const data = productData[category] || productData.construction;
+    const l = lang();
+    const detail = document.getElementById('product-detail');
+    const title = document.getElementById('pd-title');
+    const desc = document.getElementById('pd-desc');
+    const kicker = document.getElementById('pd-kicker');
+    const grid = document.getElementById('pd-grid');
+    if(!detail || !title || !desc || !grid) return;
+    detail.classList.add('show');
+    if(kicker) kicker.textContent = labels[l].kicker;
+    title.innerHTML = data[l].title;
+    desc.textContent = data[l].desc;
+    grid.innerHTML = data.products.map(function(p, idx){
+      const name = Array.isArray(p) ? (l==='es'?p[0]:p[1]) : (l==='es'?p.esName:p.enName);
+      const shortDesc = Array.isArray(p) ? (l==='es'?p[2]:p[3]) : (l==='es'?p.esDesc:p.enDesc);
+      const tag = Array.isArray(p) ? (l==='es'?p[4]:p[5]) : (l==='es'?p.esTag:p.enTag);
+      const codeLine = (!Array.isArray(p) && p.code) ? `<div class="prod-code">Cod: ${p.code}</div>` : '';
+      return `<article class="prod-card" data-product-category="${category}" data-product-index="${idx}">
+        <div class="prod-img">${data.icon}</div>
+        <div class="prod-body">
+          <h4>${name}</h4>
+          ${codeLine}
+          <p>${shortDesc}</p>
+          <div class="prod-meta"><span>${tag}</span><a href="#" data-open-product>${labels[l].view} →</a></div>
+        </div>
+      </article>`;
+    }).join('');
+    renderTabs(category);
+    const back = detail.querySelector('.pd-actions .btn.bo');
+    const quote = detail.querySelector('.pd-actions .btn.bb2');
+    if(back) back.textContent = labels[l].back;
+    if(quote) quote.textContent = labels[l].quote;
+    setTimeout(function(){ detail.scrollIntoView({behavior:'smooth', block:'start'}); }, 50);
+  }
+
+
+  function openProductModal(category, index){
+    const data = productData[category] || productData.construction;
+    const p = data.products[index] || data.products[0];
+    const l = lang();
+    const modal = document.getElementById('product-modal');
+    if(!modal || !p) return;
+    const name = Array.isArray(p) ? (l==='es'?p[0]:p[1]) : (l==='es'?p.esName:p.enName);
+    const desc = Array.isArray(p) ? (l==='es'?p[2]:p[3]) : (l==='es'?p.esDesc:p.enDesc);
+    const tag = Array.isArray(p) ? (l==='es'?p[4]:p[5]) : (l==='es'?p.esTag:p.enTag);
+    document.getElementById('pm-img').textContent = data.icon;
+    document.getElementById('pm-tag').textContent = tag;
+    document.getElementById('pm-title').textContent = name;
+    document.getElementById('pm-desc').textContent = desc;
+    let listItems;
+    if(!Array.isArray(p) && p.specs){
+      listItems = p.specs.map(function(row){ return row[0] + ': ' + row[1]; });
+    }else{
+      listItems = (l==='es'
+        ? ['Categoría: '+labels[l].tabs[category], 'Uso recomendado: industrial, comercial o mantenimiento', 'Disponibilidad: consultar con el equipo de ventas']
+        : ['Category: '+labels[l].tabs[category], 'Recommended use: industrial, commercial or maintenance', 'Availability: check with the sales team']
+      );
+    }
+    document.getElementById('pm-list').innerHTML = listItems.map(function(item){ return '<div><span class="pm-dot"></span><span>'+item+'</span></div>'; }).join('');
+    const quote = document.getElementById('pm-quote');
+    quote.textContent = l==='es' ? 'Cotizar producto' : 'Request product quote';
+    quote.setAttribute('href', '#contact');
+    quote.onclick = function(){ closeProductModal(); };
+    const secondary = document.getElementById('pm-secondary');
+    secondary.textContent = l==='es' ? 'Cerrar' : 'Close';
+    modal.classList.add('show');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeProductModal(){
+    const modal = document.getElementById('product-modal');
+    if(!modal) return;
+    modal.classList.remove('show');
+    modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('[data-category]').forEach(function(link){
+    link.addEventListener('click', function(e){
+      e.preventDefault();
+      showCategoryProducts(this.getAttribute('data-category'));
+    });
+  });
+  document.addEventListener('click', function(e){
+    const tab = e.target.closest('[data-cat-tab]');
+    if(tab) showCategoryProducts(tab.getAttribute('data-cat-tab'));
+
+    const card = e.target.closest('.prod-card');
+    if(card && card.dataset.productCategory){
+      e.preventDefault();
+      openProductModal(card.dataset.productCategory, parseInt(card.dataset.productIndex || '0', 10));
+    }
+
+    if(e.target.id === 'pm-close' || e.target.id === 'pm-secondary' || e.target.id === 'product-modal'){
+      e.preventDefault();
+      closeProductModal();
+    }
+  });
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeProductModal();
+  });
+});
+</script>
+
 </body>
 </html>
-
-
